@@ -47,6 +47,34 @@ class QNetwork(nn.Module):
         x = F.relu(self.fc2(x))
         return self.fc3(x)
 
+# class Qnet(nn.Module):
+#     def __init__(self, num_actions):
+#         super(Qnet, self).__init__()
+#         self.bn1 = torch.nn.BatchNorm2d(4)
+#         # (84 - 8) / 4  + 1 = 20 (len,width) output size
+#         self.cnn1 = nn.Conv2d(in_channels=4, out_channels=32, kernel_size=8, stride=4, padding=0)
+#         self.bn2 = torch.nn.BatchNorm2d(32)
+#         # (20 - 4) / 2 + 1 = 9 (len,width) output size
+#         self.cnn2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=4, stride=2, padding=0)
+#         self.bn3 = torch.nn.BatchNorm2d(64)
+#         # (9 - 3) / 1 + 1 = 7 (len,width )output size
+#         self.cnn3 = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, stride=1, padding=0)
+#         self.bn4 = torch.nn.BatchNorm2d(64)
+#         # fully connected layer
+#         self.fc1 = nn.Linear(64 * 7 * 7, 512)
+#         self.bn5 = torch.nn.BatchNorm1d(512)
+#         self.fc2 = nn.Linear(512, num_actions)
+#
+#     def forward(self, x):
+#         out = F.relu(self.cnn1(self.bn1(x)))
+#         out = F.relu(self.cnn2(self.bn2(out)))
+#         out = F.relu(self.cnn3(self.bn3(out)))
+#         # Resize from (batch_size, 64, 7, 7) to (batch_size,64*7*7)
+#         out = out.view(out.size(0), -1)
+#         out = F.relu(self.fc1(out))
+#         return self.fc2(out)
+
+
 class Agent():
     """Interacts with and learns from the environment."""
 
