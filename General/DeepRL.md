@@ -1,60 +1,77 @@
 # Deep Reinforcement Learning
+## Basics
+### What is RL
+![img](../assets/algorithm.png)
 
-## 1. To display animation on the jupyter notebook with some gym environments:
+Reinforcement learning (RL) is a field of study for algorithms that:
+* Have an agent that interacts with an environment.
+* The goal of the agent is to maximize cumulative reward (called return).
 
-Run a notebook with:
 
-```
-xvfb-run -s "-screen 0 1400x900x24" jupyter notebook
-```
+### The Goal in RL
 
-Inside the jupyter notebook add:
+The Goal in RL is maximizing the expected cummulative return.
 
-```
-import matplotlib.pyplot as plt
-%matplotlib inline
-from IPython import display
-```
+The optimal Policy: $\pi^{*}=\arg \max _{\pi} \underset{\tau \sim \pi}{\operatorname{E}}[R(\tau)]$
 
-Add this function to a cell:
+The trajectory is according to the policy $\tau \sim \pi$:
 
-```
-def show_state(env, step=0, info=""):
-    plt.figure(3)
-    plt.clf()
-    plt.imshow(env.render(mode='rgb_array'))
-    plt.title("%s | Step: %s" % (step, info))
-    plt.axis('off')
+$s_{0} \sim \mu(\cdot), \quad a_{t} \sim \pi\left(\cdot | s_{t}\right), \quad s_{t+1} \sim P\left(\cdot | s_{t}, a_{t}\right)$
 
-    display.clear_output(wait=True)
-    display.display(plt.gcf())
-```
+* **Stochastic Policy**: Select an action randomly according to a probability distribution: $\left(a_{t} \sim \pi\left(\cdot | s_{t}\right)\right)$
+* **Deterministic Policy**: The policy directly maps a state to an action: $a_{t}=\pi\left(s_{t}\right)$
 
-and call after each step:
+### Value Functions and Action-Value Functions
 
-```
-show_state(env,step=t,info="")
-```
+Value functions provide the expected return after an action or a (state,action) pair.
 
+$V^{\pi}(s)=\underset{\tau \sim \pi}{\operatorname{E}}\left[R(\tau) | s_{0}=s\right]$ Start in $s$ and the continue from there by sampling from $\pi$
+
+$Q^{\pi}(s, a)=\underset{\tau \sim \pi}{\mathrm{E}}\left[R(\tau) | s_{0}=s, a_{0}=a\right]$ Start in $s$ and select action $a$, then sample.
+
+$V^{*}(s)=\max _{\pi} \underset{\tau \sim \pi}{\mathrm{E}}\left[R(\tau) | s_{0}=s\right]$ Optimal Value function, the trajectory maximizes the value function
+
+$Q^{*}(s, a)=\max _{\pi} \operatorname{E}_{\tau \sim \pi}\left[R(\tau) | s_{0}=s, a_{0}=a\right]$ Optimal action value function, the trajectory maximizes the function.
+
+**Recursive Bellman Equations**:
+
+$V^{\pi}(s)=\underset{a \sim \pi \atop s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+\gamma V^{\pi}\left(s^{\prime}\right)\right]$
+
+$V^{*}(s)=\max _{a} \operatorname{E}_{s^{\prime} \sim P}\left[r(s, a)+\gamma V^{\pi}\left(s^{\prime}\right)\right]$
+
+$Q^{\pi}(s, a)=\underset{s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+{\underset{a^{\prime} \sim \pi}{\gamma\mathrm{E}}}\left[Q^{\pi}\left(s^{\prime}, a^{\prime}\right)\right]\right]$
+
+$Q^{*}(s, a)=\underset{s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+\gamma \max _{a^{\prime}} Q^{\pi}\left(s^{\prime}, a^{\prime}\right)\right]$
+
+**Optimal Action**: $a^{*}=\arg \max _{a} Q^{*}(s, a)$
+
+### Experience Replay
+* Visit transitions $\left(s, a, s^{\prime}, r\right)$ more than one time step
+* Stabilize learning by keeping old transitions in a replay buffer, and taking minibatch
+gradient descent **on mix of old and new** transitions
+
+***
+***
+## Further focus in RL and algorithsm
 ## Temporal Difference Methods:
 
 * Whereas Monte Carlo (MC) prediction methods must wait until the end of an episode to update the value function estimate, temporal-difference (TD) methods update the value function after every time step.
 
 
 ### Sarsa
-![img](assets/sarsa.png)
+![img](../assets/sarsa.png)
 
 * Sarsa(0) (or Sarsa) is an on-policy TD control method. It is guaranteed to converge to the optimal action-value function $q_∗$​, as long as the step-size parameter $\alpha$ is sufficiently small and $\epsilon$ is chosen to satisfy the **Greedy in the Limit with Infinite Exploration (GLIE)** conditions.
 
 
 ### Expected Sarsa
-![img](assets/expected-sarsa.png)
+![img](../assets/expected-sarsa.png)
 
 * Sarsamax (or Q-Learning) is an off-policy TD control method. It is guaranteed to converge to the optimal action value function $q_∗$​​, under the same conditions that guarantee convergence of the Sarsa control algorithm.
 
 
 ### Sarsamax
-![img](assets/sarsamax.png)
+![img](../assets/sarsamax.png)
 
 * Expected Sarsa is an on-policy TD control method. It is guaranteed to converge to the optimal action value function $q_*$​, under the same conditions that guarantee convergence of Sarsa and Sarsamax.
 
@@ -335,4 +352,43 @@ $\nabla_{\theta^{\mu}} J \approx \frac{1}{N} \sum_{i} \nabla_{a} Q\left.\left(s,
 ```
 actions_pred = self.actor_local(states)
 actor_loss = -self.critic_local(states, actions_pred).mean()
+```
+***
+
+**Tip For Jupyter Notebooks**
+
+## To display animation on the jupyter notebook with some gym environments:
+
+Run a notebook with:
+
+```
+xvfb-run -s "-screen 0 1400x900x24" jupyter notebook
+```
+
+Inside the jupyter notebook add:
+
+```
+import matplotlib.pyplot as plt
+%matplotlib inline
+from IPython import display
+```
+
+Add this function to a cell:
+
+```
+def show_state(env, step=0, info=""):
+    plt.figure(3)
+    plt.clf()
+    plt.imshow(env.render(mode='rgb_array'))
+    plt.title("%s | Step: %s" % (step, info))
+    plt.axis('off')
+
+    display.clear_output(wait=True)
+    display.display(plt.gcf())
+```
+
+and call after each step:
+
+```
+show_state(env,step=t,info="")
 ```
