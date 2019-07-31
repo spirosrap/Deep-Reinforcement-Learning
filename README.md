@@ -10,7 +10,7 @@ Deep Reinforcement Learning Algorithms and Code - Explanations of research paper
 (`DeepRL.md`: General tips on Deep reinforcement Learning)
 
 
-**From Open AI ["Spinning Up as a Deep RL Researcher"](https://spinningup.openai.com/en/latest/spinningup/spinningup.html).**: How to start in Deep RL assuming you've got a solid background in Mathematics, a general knowledge of Deep Learning and are familiar with at least one Deep Learning Library (Like Pytorch  or Tensorflow):
+**From Open AI ["Spinning Up as a Deep RL Researcher"](https://spinningup.openai.com/en/latest/spinningup/spinningup.html).**: How to start in Deep RL assuming you've got a solid background in Mathematics([1](http://wiki.fast.ai/index.php/Calculus_for_Deep_Learning),[2](https://www.quantstart.com/articles/matrix-algebra-linear-algebra-for-deep-learning-part-2)), a general knowledge of Deep Learning and are familiar with at least one Deep Learning Library (Like [PyTorch](https://pytorch.org/)  or [TensorFlow](https://www.tensorflow.org/)):
 
 ![OPEN AI](https://spinningup.openai.com/en/latest/_static/spinning-up-logo2.png)
 
