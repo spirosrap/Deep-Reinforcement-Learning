@@ -23,6 +23,8 @@ $s_{0} \sim \mu(\cdot), \quad a_{t} \sim \pi\left(\cdot | s_{t}\right), \quad s_
 
 ### Value Functions and Action-Value Functions
 
+*Value functions indicate which actions you should take to maximize rewards over the long-term (the expected rewards when starting from some given state)*
+
 Value functions provide the expected return after an action or a (state,action) pair.
 
 $V^{\pi}(s)=\underset{\tau \sim \pi}{\operatorname{E}}\left[R(\tau) | s_{0}=s\right]$ Start in $s$ and the continue from there by sampling from $\pi$
