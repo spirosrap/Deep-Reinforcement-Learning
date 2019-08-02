@@ -7,7 +7,7 @@ Deep Reinforcement Learning Algorithms and Code - Explanations of research paper
 4. `PPO`: [Proximal Policy Optimization,Schulman et al, 2017](https://arxiv.org/abs/1707.06347)
 5. `DDPG`: [Deep Deterministic Policy Gradient,Lillicrap et al, 2015](https://arxiv.org/abs/1509.02971)
 
-(`DeepRL.md`: General tips on Deep reinforcement Learning)
+(`Folder DeepRL`: General tips on Deep reinforcement Learning)
 
 
 **From Open AI ["Spinning Up as a Deep RL Researcher (or Practitioner)"](https://spinningup.openai.com/en/latest/spinningup/spinningup.html).**: How to start in Deep RL assuming you've got a solid background in Mathematics([1](http://wiki.fast.ai/index.php/Calculus_for_Deep_Learning),[2](https://www.quantstart.com/articles/matrix-algebra-linear-algebra-for-deep-learning-part-2)), a general knowledge of Deep Learning and are familiar with at least one Deep Learning Library (Like [PyTorch](https://pytorch.org/)  or [TensorFlow](https://www.tensorflow.org/)):
