@@ -10,6 +10,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.distributions import Normal
 from multiprocessing_env import SubprocVecEnv
+from itertools import count
 
 device   = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -185,3 +186,34 @@ while frame_idx < max_frames and not early_stop:
     advantage = returns - values
 
     ppo_update(ppo_epochs, mini_batch_size, states, actions, log_probs, returns, advantage)
+
+
+max_expert_num = 50000
+num_steps = 0
+expert_traj = []
+
+for i_episode in count():
+    state = env.reset()
+    done = False
+    total_reward = 0
+
+    while not done:
+        state = torch.FloatTensor(state).unsqueeze(0).to(device)
+        dist, _ = model(state)
+        action = dist.sample().cpu().numpy()[0]
+        next_state, reward, done, _ = env.step(action)
+        state = next_state
+        total_reward += reward
+        expert_traj.append(np.hstack([state, action]))
+        num_steps += 1
+
+    print("episode:", i_episode, "reward:", total_reward)
+
+    if num_steps >= max_expert_num:
+        break
+
+expert_traj = np.stack(expert_traj)
+print()
+print(expert_traj.shape)
+print()
+np.save("expert_traj.npy", expert_traj)
