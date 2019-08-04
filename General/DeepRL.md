@@ -9,6 +9,14 @@
     - Have an agent that interacts with an environment.
     - The goal of the agent is to maximize cumulative reward (called return).
 
+RL is a type of Machine Learning
+
+Machine Learning:
+* **Supervised Learning**: Categorize from labeled data
+* **Unsupervised Learning**: Tries to find hidden structure from unlabeled data
+* **Reinforcement Learning**
+
+**RL and Unsupervised Learning difference**: RL is trying to maximize a reward signal instead of trying to find hidden structure.
 
 ### The Goal in RL
 
