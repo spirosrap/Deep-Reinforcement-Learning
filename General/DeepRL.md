@@ -17,6 +17,14 @@ RL is a type of Machine Learning:
 
 **RL and Unsupervised Learning difference**: RL is trying to maximize a reward signal instead of trying to find hidden structure.
 
+Types of RL Algorithms:
+* **Model-based**: Rely on the model of the environment; either the model is known or the algorithm learns it explicitly.
+* **Model-free**: There's no dependency on the model during learning.
+
+Two main categories:
+* **On-policy**: Use the deterministic outcomes or samples from the target policy to train the algorithm. (The same policy is used for interacting with the environment and it's being learned. **example**: A2C)
+* **Off-policy**: Training on a distribution of transitions or episodes produced by a different behavior policy rather than that produced by the target policy (The policy interacting with the environment and the policy being learned are different. **example** : DQN - `qnetwork_local` interacting with the environment and `qnetwork_target` being learned)
+
 ### The Goal in RL
 
 The Goal in RL is maximizing the expected cummulative return.
@@ -320,8 +328,8 @@ But we only want to clip the top part and not the bottom part. To do that, we co
 * **Critic**: In value based methods you're continually make guesses for the outcome. The guesses improve. (Given that you select good actions)
 * In actor critic methods you use the critic to tell good from bad actions more quickly.
 * the use of $\theta$​ in some value functions and not in others. This only means that such value function is using a neural network. For example, $V(s;\theta_v)$ is using a neural network as a function approximator, but $A(s,a)$ is not.
-* **On Policy**: The same policy is used for interacting with the environment and it's being learned. (Sarsa $Q(S, A) \leftarrow Q(S, A)+\alpha\left[R+\gamma Q\left(S^{\prime}, A^{\prime}\right)-Q(S, A)\right]$ Action already chosen)
-* **Off Policy**: The policy interacting with the environment and the policy being learned are different. (DQN $Q(S, A) \leftarrow Q(S, A)+\alpha\left[R+\gamma \max _{a} Q\left(S^{\prime}, a\right)-Q(S, A)\right]$ $a$ is not guaranteed to be used in the next step. It's not necessarily $A'$)
+* **On-Policy**: The same policy is used for interacting with the environment and it's being learned. (Sarsa $Q(S, A) \leftarrow Q(S, A)+\alpha\left[R+\gamma Q\left(S^{\prime}, A^{\prime}\right)-Q(S, A)\right]$ Action already chosen)
+* **Off-Policy**: The policy interacting with the environment and the policy being learned are different. (DQN $Q(S, A) \leftarrow Q(S, A)+\alpha\left[R+\gamma \max _{a} Q\left(S^{\prime}, a\right)-Q(S, A)\right]$ $a$ is not guaranteed to be used in the next step. It's not necessarily $A'$)
 
 ### A2C/A3C
 
