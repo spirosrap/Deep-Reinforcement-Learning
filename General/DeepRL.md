@@ -1,5 +1,13 @@
 # Deep Reinforcement Learning
 ## Basics
+
+### *Background*: Markov Decision Process (MDP)
+
+All states in Markov Decision Process has “Markov” property, referring to the fact that the future only depends on the current state, not the history
+
+$\mathbb{P}\left[S_{t+1} | S_{t}\right]=\mathbb{P}\left[S_{t+1} | S_{1}, \ldots, S_{t}\right]$
+
+
 ### What is RL
 ![img](../assets/algorithm.png)
 
@@ -28,6 +36,7 @@ Types of RL Algorithms:
 Two main categories:
 * **On-policy**: Use the deterministic outcomes or samples from the target policy to train the algorithm. (The same policy is used for interacting with the environment and it's being learned. **example**: A2C)
 * **Off-policy**: Training on a distribution of transitions or episodes produced by a different behavior policy rather than that produced by the target policy (The policy interacting with the environment and the policy being learned are different. **example** : DQN - `qnetwork_local` interacting with the environment and `qnetwork_target` being learned)
+
 
 ### The Goal in RL
 
