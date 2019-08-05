@@ -5,7 +5,11 @@
 
 1. Reinforcement learning (RL) is learning what to do—how to map situations to actions—so as to maximize a numerical reward signal. (RL An Introduction,2018,The MIT Press)
 
-2. Reinforcement learning (RL) is a field of study for algorithms that:
+2. Reinforcement learning is a learning paradigm concerned with
+learning to control a system so as to maximize a numerical performance
+measure that expresses a long-term objective. (Algorithms for Reinforcement Learning,Csaba Szepesvari)
+
+3. Reinforcement learning (RL) is a field of study for algorithms that:
     - Have an agent that interacts with an environment.
     - The goal of the agent is to maximize cumulative reward (called return).
 
