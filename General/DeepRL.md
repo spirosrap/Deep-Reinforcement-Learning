@@ -67,6 +67,8 @@ $Q^{*}(s, a)=\max _{\pi} \operatorname{E}_{\tau \sim \pi}\left[R(\tau) | s_{0}=s
 
 **Recursive Bellman Equations**:
 
+*Bellman equations refer to a set of equations that decompose the value function into the immediate reward plus the discounted future values.*
+
 $V^{\pi}(s)=\underset{a \sim \pi \atop s^{\prime} \sim P}{\mathrm{E}}\left[r(s, a)+\gamma V^{\pi}\left(s^{\prime}\right)\right]$
 
 $V^{*}(s)=\max _{a} \operatorname{E}_{s^{\prime} \sim P}\left[r(s, a)+\gamma V^{\pi}\left(s^{\prime}\right)\right]$
