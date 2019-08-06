@@ -3,6 +3,8 @@
 
 ### *Background*: Markov Decision Process (MDP)
 
+***Markov Decision Processes (MDPs)** are a tool for modeling sequential decision-making problems where a decision maker interacts with a system in a sequential fashion.*(Algorithms for Reinforcement Learning,Csaba Szepesvari)
+
 All states in Markov Decision Process has “Markov” property, referring to the fact that the future only depends on the current state, not the history
 
 $\mathbb{P}\left[S_{t+1} | S_{t}\right]=\mathbb{P}\left[S_{t+1} | S_{1}, \ldots, S_{t}\right]$
