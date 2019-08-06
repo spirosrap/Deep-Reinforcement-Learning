@@ -23,6 +23,8 @@ measure that expresses a long-term objective. (Algorithms for Reinforcement Lear
     - Have an agent that interacts with an environment.
     - The goal of the agent is to maximize cumulative reward (called return).
 
+4. In a nutshell, RL is the study of agents and how they learn by trial and error. It formalizes the idea that rewarding or punishing an agent for its behavior makes it more likely to repeat or forego that behavior in the future (̛Introduction to RL, OpenAI)
+
 RL is a type of Machine Learning:
 
 * **Supervised Learning**: Categorize from labeled data
