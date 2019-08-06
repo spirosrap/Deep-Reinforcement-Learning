@@ -59,6 +59,8 @@ $s_{0} \sim \mu(\cdot), \quad a_{t} \sim \pi\left(\cdot | s_{t}\right), \quad s_
 
 Value functions provide the expected return after an action or a (state,action) pair.
 
+*Whereas the reward signal indicates what is good in an immediate sense, a value function specifies what is good in the long run.*
+
 $V^{\pi}(s)=\underset{\tau \sim \pi}{\operatorname{E}}\left[R(\tau) | s_{0}=s\right]$ Start in $s$ and the continue from there by sampling from $\pi$
 
 $Q^{\pi}(s, a)=\underset{\tau \sim \pi}{\mathrm{E}}\left[R(\tau) | s_{0}=s, a_{0}=a\right]$ Start in $s$ and select action $a$, then sample.
