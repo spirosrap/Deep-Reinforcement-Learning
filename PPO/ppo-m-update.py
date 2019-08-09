@@ -188,7 +188,7 @@ def main():
         avg_length += t
         q_rewards.append(running_reward)
         # stop training if avg_reward > solved_reward
-        if running_reward > (np.mean(q_rewards)):
+        if (running_reward > solved_reward):
             print("########## Solved! ##########")
             torch.save(ppo.policy.state_dict(), './PPO_{}.pth'.format(env_name))
             break
