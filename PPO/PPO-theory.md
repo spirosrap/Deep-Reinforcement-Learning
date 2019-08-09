@@ -58,9 +58,54 @@ Finally we take the minimum between the surrogate objective and the clipped surr
 
 Note  that $L^{C L I P}(\theta)=L^{C P I}(\theta)$ while $\theta$  around $\theta_{old}$ ($r=1$) , $r_{t}(\theta)=\frac{\pi_{\theta}\left(a_{t} | s_{t}\right)}{\pi_{\theta_{\mathrm{old}}}\left(a_{t} | s_{t}\right)}$
 
-![img](https://cdn.mathpix.com/snip/images/rOE0Qk0X01GdUDxYH2S7m0WQ4dzMcWeJS4D9ZMEi8nU.original.fullsize.png)
+![Grahps on the clipped onbjective](https://cdn.mathpix.com/snip/images/rOE0Qk0X01GdUDxYH2S7m0WQ4dzMcWeJS4D9ZMEi8nU.original.fullsize.png)
 
 ### Another approach
+
+* Use a penalty on KL divergence
+* adapt the penalty coefficient so that we achieve some target value of the KL divergence $d_{targ}$ each policy update.
+
+In each policy update the two following steps are performed:
+
+* Optimize KL-Penalized objective: $L^{K L P E N}(\theta)=\hat{\mathbb{E}}_{t}\left[\frac{\pi_{\theta}\left(a_{t} | s_{t}\right)}{\pi_{\theta_{\text { old }}}\left(a_{t} | s_{t}\right)} \hat{A}_{t}-\beta \mathrm{KL}\left[\pi_{\theta_{\text { old }}}\left(\cdot | s_{t}\right), \pi_{\theta}\left(\cdot | s_{t}\right)\right]\right]$
+* Compute $d=\hat{\mathbb{E}}_{t}\left[\mathrm{KL}\left[\pi_{\theta \mathrm{old}}\left(\cdot | s_{t}\right), \pi_{\theta}\left(\cdot | s_{t}\right)\right]\right]$
+  * $\text { If } d<d_{\operatorname{targ}} / 1.5, \beta \leftarrow \beta / 2$
+  * $\text { If } d>d_{\text { targ }} \times 1.5, \beta \leftarrow \beta \times 2$
+* The updated $\beta$ is used in the next policy update
+* The parameters 1.5 and 2 above are chosen heuristically, but the algorithm is not very sensitive to them.
+* The initial value of $\beta$ is a hyperparameter but the algorithm quickly adjust it. Thus, it is not important.
+
+## The PPO Algorithm
+
+With automatic differentiation, we optimize $L^{CLIP}$ or $L^{KLPEN}$ (by performing stochastic gradient ascent on this objective)
+
+We must use a loss function that combines the policy surrogate and a value function error term. Augmenting by adding an entropy bonus for ensuring sufficient exploration.
+
+We maximize in each iteration (Optimize using stochastic gradient ascent):
+
+$L_{t}^{C L I P+V F+S}(\theta)=\hat{\mathbb{E}}_{t}\left[L_{t}^{C L I P}(\theta)-c_{1} L_{t}^{V F}(\theta)+c_{2} S\left[\pi_{\theta}\right]\left(s_{t}\right)\right]$
+
+$c_{1}$ and $c_{2}$ are coefficients and $S$ is the entropy bonus and $L_{t}^{V F} = \left(V_{\theta}\left(s_{t}\right)-V_{t}^{\mathrm{targ}}\right)^{2}$ (Squared error loss)
+
+One style of policy gradient implementation runs the policy for $T$ timesteps (less than the length of an episode) and uses the samples for the updates. The advantage estimator should not look beyond T also:
+
+$\hat{A}_{t}=-V\left(s_{t}\right)+r_{t}+\gamma r_{t+1}+\cdots+\gamma^{T-t+1} r_{T-1}+\gamma^{T-t} V\left(s_{T}\right)$
+
+$t{\large\in} [0, T]$
+
+We can use a truncated version of generalized advantage estimation:
+
+$\begin{array}{l}{\hat{A}_{t}=\delta_{t}+(\gamma \lambda) \delta_{t+1}+\cdots+\cdots+(\gamma \lambda)^{T-t+1} \delta_{T-1}} \\ {\text { where } \quad \delta_{t}=r_{t}+\gamma V\left(s_{t+1}\right)-V\left(s_{t}\right)}\end{array}$
+
+In the following implementation fixed trajectory length segements are used.
+
+* N parallel actors
+* In each iteration
+  * Each actor collects T timesteps of data
+  * Construct surrogate loss on $N*T$ timesteps of data.
+  * Optimize using SGD (Adam or Minibatch)
+
+![Algorithm 1 PPO, Actor-Critic Style](https://cdn.mathpix.com/snip/images/mDUtjnTlKORxpuxx8oWa91o9nwwYNhEkhNNNaDskG1I.original.fullsize.png)
 
 
 ### General outline of the Algorithm
