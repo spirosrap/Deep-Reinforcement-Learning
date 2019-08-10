@@ -1,3 +1,4 @@
+#https://github.com/higgsfield/RL-Adventure-2/blob/master/3.ppo.ipynb
 import math
 import random
 
