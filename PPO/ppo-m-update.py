@@ -158,6 +158,7 @@ def main():
     # logging variables
     running_reward = 0
     avg_length = 0
+    lengths = []
     timestep = 0
     q_rewards = deque(maxlen=100)
     # training loop
@@ -186,6 +187,7 @@ def main():
                 break
 
         avg_length += t
+        lengths.append(t)
         q_rewards.append(running_reward)
         # stop training if avg_reward > solved_reward
         if (np.mean(q_rewards) > solved_reward):
@@ -196,8 +198,9 @@ def main():
         # logging
         if i_episode % log_interval == 0:
             avg_length = int(avg_length/log_interval)
-            print('Episode {} \t avg length: {} \t avg reward: {}'.format(i_episode, avg_length, np.mean(q_rewards)))
+            print('Episode {} \t avg length: {} \t avg reward: {}'.format(i_episode, np.mean(lengths), np.mean(q_rewards)))
             avg_length = 0
+            lengths = []
 
 if __name__ == '__main__':
     main()
