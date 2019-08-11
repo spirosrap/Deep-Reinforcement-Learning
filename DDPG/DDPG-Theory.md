@@ -2,11 +2,11 @@
 
 ### Background
 
-DDPG is a policy gradient (PG) method. In PG methods we use non linear function approximators (Deep Learning networks) to learn value functions. In the past it was considered that Function Approximators were unstable and difficult.
+DDPG is a policy gradient (PG) method. In PG methods we use non linear function approximators (Deep Learning networks) to learn value functions. In the past it was considered that Function Approximators were unstable and difficult (But not anymore!)
 
 When action spaces are continuous it's difficult to use DQN-like networks, the problem becomes intractable. We can solve this problem if we use function approximators (PG methods) to estimate the action value function.
 
-Consider a standard RL environment $E$ in which the agents interacts with in discrete time steps. At each time step the agent receives and observation $s_t$ (Environment assumed fully observed).
+Consider a standard RL environment $E$ in which the agents interacts with in discrete time steps. At each time step the agent receives a observation $s_t$ (Environment assumed fully observed).
 
 The agent behaves according to the policy $\pi : \mathcal{S} \rightarrow \mathcal{P}(\mathcal{A})$ (Maps states $\mathcal{S}$ to probability distributions over actions $\mathcal{A}$)
 
@@ -75,6 +75,6 @@ $\nabla_{\theta^{\mu}} J \approx \mathbb{E}_{s_{t} \sim \rho^{\beta}}\left[\nabl
 
 The challenge when using Deep NNs for RL is that optimization algorithms assume that the samples are independently and identically distributed. However, in RL the states highly depend on each other when they're generated sequentially. Also we have to use mini-batches to take advantage of hardware optimizations.
 
-To address these issues DDPG uses a replay buffer. The replay buffer is a cache of a finite size $\mathcal{R}$ from which the algorithm samples actions randomly. So, with we get to train using an uncorrelated transitions, thus improving training.
+To address these issues DDPG uses a replay buffer. The replay buffer is a cache of a finite size $\mathcal{R}$ from which the algorithm samples actions randomly. So, with the replay buffer we get to train using an uncorrelated transitions, thus improving training.
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*qV8STzz6mEYIKjOXyibtrQ.png)
