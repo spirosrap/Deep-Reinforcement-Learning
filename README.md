@@ -18,7 +18,7 @@ Deep Reinforcement Learning Algorithms and Code - Explanations of research paper
 
 
 
-Further Algorithms to study (Open AI Hackathon):
+Further Algorithms to study (Suggested at Open AI Hackathon):
 
 * `TRPO`: [Schulman et al, 2015](https://arxiv.org/abs/1502.05477)
 * `C51`: [Bellemare et al, 2017](https://arxiv.org/abs/1707.06887)
