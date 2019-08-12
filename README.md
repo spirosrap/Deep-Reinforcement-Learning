@@ -39,7 +39,7 @@ The implementations were taken from various sources with a focus on simplicity a
 
 There are minor corrections on the implementations with the aim of making them easier to understand and consistent.
 
-## Source
+## Sources
 * [Udacity](https://github.com/udacity/deep-reinforcement-learning)
 * [OpenAI](https://spinningup.openai.com/en/latest/spinningup/spinningup.html)
 * [ShangtongZhang/DeepRL](https://github.com/ShangtongZhang/DeepRL)
