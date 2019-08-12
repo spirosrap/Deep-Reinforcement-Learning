@@ -38,3 +38,10 @@ My framework of choice is [Pytorch](https://pytorch.org/) which is covered by a 
 The implementations were taken from various sources with a focus on simplicity and ease of understanding (including Udacity's [repository for the Deep Reinforcement Learning Nanodegree](https://github.com/udacity/deep-reinforcement-learning)). There are numerous implementations available including very good modular ones but my purpose is mastering the RL theory and algorithms. Creating modular code is a secondary goal.
 
 There are minor corrections on the implementations with the aim of making them easier to understand and consistent.
+
+## Source
+* [Udacity](https://github.com/udacity/deep-reinforcement-learning)
+* [OpenAI](https://spinningup.openai.com/en/latest/spinningup/spinningup.html)
+* [ShangtongZhang/DeepRL](https://github.com/ShangtongZhang/DeepRL)
+* [higgsfield/RL-Adventure-2](https://github.com/higgsfield/RL-Adventure-2)
+* [nikhilbarhate99/PPO-PyTorch](https://github.com/nikhilbarhate99/PPO-PyTorch)
