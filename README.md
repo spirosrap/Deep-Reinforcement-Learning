@@ -26,4 +26,15 @@ Further Algorithms to study (Open AI Hackathon):
 * `SVG`: [Heess et al, 2015](https://arxiv.org/abs/1510.09142)
 * `I2A`: [Weber et al, 2017](https://arxiv.org/abs/1707.06203)
 * `MBMF`: [Nagabandi et al, 2017](https://sites.google.com/view/mbmf)
-* `AlphaZero`: [Silver et al, 2017](https://arxiv.org/abs/1712.01815)
+* `AlphaZero`: [Silver et al, 2017](https://arxiv.org/abs/1712.01815
+
+## How to study the RL Algorithms
+
+Start with the most simple algorithm (REINFORCE). First read the paper carefully. Then read the implementation and try to rewrite the code from scratch. Take care not to overfit on implementation details or on paper details. 
+
+## Notes
+My framework of choice is Pytorch which is covered by a free licence ([ Modified BSD license](https://en.wikipedia.org/wiki/Modified_BSD_License)).
+
+The implementations were taken from various sources with a focus on simplicity and ease of understanding (including Udacity's [repository for the Deep Reinforcement Learning Nanodegree](https://github.com/udacity/deep-reinforcement-learning). There are numerous implementations available including very good modular ones but my purpose is mastering the RL theory and algorithms. Creating modular code is a secondary goal.
+
+There are minor corrections on the implementations with the aim of making easier to understand and consistent.
