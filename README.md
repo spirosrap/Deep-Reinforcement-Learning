@@ -1,7 +1,7 @@
 # Deep-Reinforcement-Learning
 Deep Reinforcement Learning Algorithms and Code - Explanations of research papers and their implementations (*All algorithm implementations are done in Pytorch*)
 
-1. `REINFORCE`: Vanilla Policy Gradient
+1. `REINFORCE`: [Vanilla Policy Gradient](https://spinningup.openai.com/en/latest/algorithms/vpg.html)
 2. `DQN`: [Deep Q-Learning, Mnih et al, 2013](https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf)
 3. `A3C/A2C`: [Asynchronous methods for Deep RL,Mnih et al, 2016  ](https://arxiv.org/abs/1602.01783)
 4. `PPO`: [Proximal Policy Optimization,Schulman et al, 2017](https://arxiv.org/abs/1707.06347)
