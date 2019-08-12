@@ -35,6 +35,6 @@ Start with the most simple algorithm (REINFORCE). First read the paper carefully
 ## Notes
 My framework of choice is Pytorch which is covered by a free licence ([ Modified BSD license](https://en.wikipedia.org/wiki/Modified_BSD_License)).
 
-The implementations were taken from various sources with a focus on simplicity and ease of understanding (including Udacity's [repository for the Deep Reinforcement Learning Nanodegree](https://github.com/udacity/deep-reinforcement-learning). There are numerous implementations available including very good modular ones but my purpose is mastering the RL theory and algorithms. Creating modular code is a secondary goal.
+The implementations were taken from various sources with a focus on simplicity and ease of understanding (including Udacity's [repository for the Deep Reinforcement Learning Nanodegree](https://github.com/udacity/deep-reinforcement-learning)). There are numerous implementations available including very good modular ones but my purpose is mastering the RL theory and algorithms. Creating modular code is a secondary goal.
 
 There are minor corrections on the implementations with the aim of making easier to understand and consistent.
