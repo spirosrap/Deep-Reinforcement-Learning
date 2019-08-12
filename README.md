@@ -33,7 +33,7 @@ Further Algorithms to study (Open AI Hackathon):
 Start with the most simple algorithm (REINFORCE). First read the paper carefully. Then read the implementation and try to rewrite the code from scratch. Take care not to overfit on implementation details or on paper details. 
 
 ## Notes
-My framework of choice is Pytorch which is covered by a free licence ([ Modified BSD license](https://en.wikipedia.org/wiki/Modified_BSD_License)).
+My framework of choice is [Pytorch](https://pytorch.org/) which is covered by a free licence ([ Modified BSD license](https://en.wikipedia.org/wiki/Modified_BSD_License)).
 
 The implementations were taken from various sources with a focus on simplicity and ease of understanding (including Udacity's [repository for the Deep Reinforcement Learning Nanodegree](https://github.com/udacity/deep-reinforcement-learning)). There are numerous implementations available including very good modular ones but my purpose is mastering the RL theory and algorithms. Creating modular code is a secondary goal.
 
