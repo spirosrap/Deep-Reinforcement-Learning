@@ -26,7 +26,7 @@ Further Algorithms to study (Open AI Hackathon):
 * `SVG`: [Heess et al, 2015](https://arxiv.org/abs/1510.09142)
 * `I2A`: [Weber et al, 2017](https://arxiv.org/abs/1707.06203)
 * `MBMF`: [Nagabandi et al, 2017](https://sites.google.com/view/mbmf)
-* `AlphaZero`: [Silver et al, 2017](https://arxiv.org/abs/1712.01815
+* `AlphaZero`: [Silver et al, 2017](https://arxiv.org/abs/1712.01815)
 
 ## How to study the RL Algorithms
 
