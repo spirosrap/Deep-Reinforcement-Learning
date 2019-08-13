@@ -37,7 +37,10 @@ class Policy(nn.Module):
         return action.item(), m.log_prob(action)
 
 policy = Policy().to(device) optimizer = optim.Adam(policy.parameters(),lr=1e-02)
-def reinforce(n_episodes=1000,max_t=1000,gamma=1.0,print_every=100):
+def main():
+    n_episodes=1000
+    max_t=1000,gamma=1.0
+    print_every=100
     scores_deque = deque(maxlen=100)
     scores = []
     for i_episode in range(1,n_episodes+1):
@@ -73,6 +76,5 @@ def reinforce(n_episodes=1000,max_t=1000,gamma=1.0,print_every=100):
             torch.save(policy.state_dict(), "reinforce.pth")
             break
 
-    return scores
-
-scores = reinforce()
+if __name__ == '__main__':
+    main()
