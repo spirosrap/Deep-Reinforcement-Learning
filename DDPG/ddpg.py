@@ -8,6 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import gym
+
 def hidden_init(layer):
     fan_in = layer.weight.data.size()[0]
     lim = 1. / np.sqrt(fan_in)
@@ -263,8 +264,8 @@ def main():
     agent = Agent(state_size=env.observation_space.shape[0], action_size=env.action_space.shape[0], random_seed=10)
     print("action size:", env.action_space.shape[0])
     print("state size:", env.observation_space.shape[0])
-    n_episodes=2000 
-    max_t=700
+    n_episodes=2000
+    max_t=1000
     scores_deque = deque(maxlen=100)
     scores = []
     max_score = -np.Inf

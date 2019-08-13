@@ -1,7 +1,22 @@
 ## REINFORCE: $\hat{g} :=\frac{1}{m} \sum_{i=1}^{m} \sum_{t=0}^{H} \nabla_{\theta} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right) R\left(\tau^{(i)}\right)$
 
+### Basics
+* The REINFORCE algorithm is the main and initial example of policy gradient methods.
+* The main idea is to push up actions that lead to increased rewards and push down actions that lead to decreased rewards. Repeat until arriving to the optimal policy.
+* On policy method
+* Exploration vs Exploitation: Randomness usually decreases as the training goes on. Usually determined with a greedy parameter.
 
-![img](https://spinningup.openai.com/en/latest/_images/math/47a7bd5139a29bc2d2dc85cef12bba4b07b1e831.svg)
+The general form of the gradient (the gradient we look to maximize):
+![JPtheta](https://i.imgur.com/YfWbNnB.png)
+
+
+Notice the advantage function $A^{\pi_{\theta}}(s_t,a_t)$ instead of $R(\tau^{(i)})$
+
+Algorithm pseudo-code:
+
+![pseudo-code](https://spinningup.openai.com/en/latest/_images/math/47a7bd5139a29bc2d2dc85cef12bba4b07b1e831.svg)
+
+
 
 
 1. Use policy $\pi_{\theta}$ to collect `m` trajectories $\tau^{(1)}, \tau^{(2)}, \ldots, \tau^{(m)}$ with horizon $H$. The `i-th` trajectory: $\tau^{(i)}=\left(s_{0}^{(i)}, a_{0}^{(i)}, \ldots, s_{H}^{(i)}, a_{H}^{(i)}, s_{H+1}^{(i)}\right)$
@@ -48,3 +63,9 @@ $$
 $$
 
 $\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)=0$ because $\sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)$ has no dependence on $\theta$
+
+
+### Sources
+
+* https://spinningup.openai.com/en/latest/algorithms/vpg.html
+* https://github.com/udacity/deep-reinforcement-learning
