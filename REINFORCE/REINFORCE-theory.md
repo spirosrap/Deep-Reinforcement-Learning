@@ -16,6 +16,9 @@ Algorithm pseudo-code:
 
 ![pseudo-code](https://spinningup.openai.com/en/latest/_images/math/47a7bd5139a29bc2d2dc85cef12bba4b07b1e831.svg)
 
+Algorithm pseudo-code second version less math-heavy:
+
+![Imgur](https://i.imgur.com/xggCX2h.png)
 
 
 
@@ -69,3 +72,4 @@ $\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}
 
 * https://spinningup.openai.com/en/latest/algorithms/vpg.html
 * https://github.com/udacity/deep-reinforcement-learning
+* http://joschu.net/docs/thesis.pdf (second chapter)
