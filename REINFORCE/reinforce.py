@@ -2,7 +2,7 @@ import gym
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.optim as optimizer
+import torch.optim as optim
 
 import numpy as np
 import random
@@ -36,10 +36,12 @@ class Policy(nn.Module):
         action = m.sample()
         return action.item(), m.log_prob(action)
 
-policy = Policy().to(device) optimizer = optim.Adam(policy.parameters(),lr=1e-02)
+policy = Policy().to(device)
+optimizer = optim.Adam(policy.parameters(),lr=1e-02)
 def main():
     n_episodes=1000
-    max_t=1000,gamma=1.0
+    max_t=1000
+    gamma=1.0
     print_every=100
     scores_deque = deque(maxlen=100)
     scores = []
