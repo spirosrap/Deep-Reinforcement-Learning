@@ -72,4 +72,4 @@ $\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}
 
 * https://spinningup.openai.com/en/latest/algorithms/vpg.html
 * https://github.com/udacity/deep-reinforcement-learning
-* http://joschu.net/docs/thesis.pdf (second chapter)
+* http://joschu.net/docs/thesis.pdf (second chapter), Optimizing Expectations: From Deep Reinforcement Learning to Stochastic Computation Graphs, Schulman 2016(a)
