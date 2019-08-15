@@ -68,6 +68,12 @@ $$
 $\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)=0$ because $\sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)$ has no dependence on $\theta$
 
 
+### About the Pytorch implementation included in the current folder (`reinforce.py`)
+
+Changing the full connected layer's (`fc_units`) units to 16,32,64 or more doesn't improve
+how quick the model converges - if it ever converges. Also, adding an additional layer
+doesn't improve the effectiveness of the algorithm.
+
 ### Sources
 
 * https://spinningup.openai.com/en/latest/algorithms/vpg.html

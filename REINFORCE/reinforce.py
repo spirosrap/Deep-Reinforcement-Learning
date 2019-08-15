@@ -17,6 +17,9 @@ print("observation space",env.observation_space.shape)
 print("action space",env.action_space.n)
 
 class Policy(nn.Module):
+    # Changing the Full connected layer units to 16,32,64 or more doesn't improve
+    # how quick the model converges - if it ever converges. Also, adding an additional layer
+    # doesn't improve the effectiveness of the algorithm
     def __init__(self, state_size=4, action_size=2, seed=0, fc1_units=8):
         super(Policy, self).__init__()
         self.seed = torch.manual_seed(seed)
