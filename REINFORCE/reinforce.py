@@ -40,11 +40,11 @@ class Policy(nn.Module):
         return action.item(), m.log_prob(action)
 
 policy = Policy().to(device)
-optimizer = optim.Adam(policy.parameters(),lr=1e-02)
+optimizer = optim.Adam(policy.parameters(),lr=1e-2)
 def main():
-    n_episodes=1000
-    max_t=1000
-    gamma=1.0
+    n_episodes=5000
+    max_t=200
+    gamma=0.995
     print_every=100
     scores_deque = deque(maxlen=100)
     scores = []

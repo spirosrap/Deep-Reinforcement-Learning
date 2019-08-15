@@ -70,10 +70,10 @@ $\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}
 
 ### About the Pytorch implementation included in the current folder (`reinforce.py`)
 
-Changing the full connected layer's (`fc_units`) units to 16,32,64 or more doesn't improve
-how quick the model converges - if it ever converges. Also, adding an additional layer
-doesn't improve the effectiveness of the algorithm.
-
+* Changing the full connected layer's (`fc_units`) units to 16,32,64 or more doesn't improve how quick the model converges - if it ever converges. Also, adding an additional layer doesn't improve the effectiveness of the algorithm.
+* With smaller learning rate (1e-3 - default:1e-2) the model seems to converge more consistently although much slower. At around the 3000 episode stops the rate of improvement and converges after another 1200 episodes approximately.
+* Setting max_t down to 200 doesn't change much. Below that, the model has a hard time to converge.
+* Setting the discount rate (`gamma`) to `0.995` from `1.0` helps the model to converge more consistently.
 ### Sources
 
 * https://spinningup.openai.com/en/latest/algorithms/vpg.html
