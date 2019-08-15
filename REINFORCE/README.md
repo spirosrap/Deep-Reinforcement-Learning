@@ -76,6 +76,8 @@ $\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}
 * Setting the discount rate (`gamma`) to `0.995` from `1.0` helps the model to converge more consistently.
 ### Sources
 
-* https://spinningup.openai.com/en/latest/algorithms/vpg.html
-* https://github.com/udacity/deep-reinforcement-learning
-* http://joschu.net/docs/thesis.pdf (second chapter), Optimizing Expectations: From Deep Reinforcement Learning to Stochastic Computation Graphs, Schulman 2016(a)
+1. https://spinningup.openai.com/en/latest/algorithms/vpg.html
+2. https://github.com/udacity/deep-reinforcement-learning
+3. http://joschu.net/docs/thesis.pdf (second chapter), Optimizing Expectations: From Deep Reinforcement Learning to Stochastic Computation Graphs, Schulman 2016(a)
+
+*Schulman 2016(a) is included because Chapter 2 contains a lucid introduction to the theory of policy gradient algorithms, including pseudocode.*([reference](https://spinningup.openai.com/en/latest/algorithms/vpg.html))
