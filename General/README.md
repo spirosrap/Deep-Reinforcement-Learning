@@ -3,7 +3,14 @@
 
 ### *Background*: Markov Decision Process (MDP)
 
-***Markov Decision Processes (MDPs)** are a tool for modeling sequential decision-making problems where a decision maker interacts with a system in a sequential fashion.*(Algorithms for Reinforcement Learning,Csaba Szepesvari)
+1) ***Markov Decision Processes (MDPs)** are a tool for modeling sequential decision-making problems where a decision maker interacts with a system in a sequential fashion.*(Algorithms for Reinforcement Learning,Csaba Szepesvari)
+
+2) **A Markov Decision Process (MDP)** is a mathematical object that describes an agent interacting with a stochastic environment. It is defined by the following components:
+* $S$: state space, a set of states of the environment.
+* $A$: action space, a set of actions, which the agent selects from at each timestep.
+* $P(r, s_0 | s, a)$: a transition probability distribution. For each state s and action a, $P$ specifies the probability that the environment will emit reward r and transition to state $s_0$.
+
+*((second chapter), Optimizing Expectations: From Deep Reinforcement Learning to Stochastic Computation Graphs, Schulman 2016(a))*
 
 All states in Markov Decision Process has “Markov” property, referring to the fact that the future only depends on the current state, not the history
 
