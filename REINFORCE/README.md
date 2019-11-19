@@ -1,6 +1,7 @@
 ## REINFORCE: $\hat{g} :=\frac{1}{m} \sum_{i=1}^{m} \sum_{t=0}^{H} \nabla_{\theta} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right) R\left(\tau^{(i)}\right)$
 
 ### Basics
+
 * The REINFORCE algorithm is the main and initial example of policy gradient methods.
 * The main idea is to push up actions that lead to increased rewards and push down actions that lead to decreased rewards. Repeat until arriving to the optimal policy.
 * On policy method
@@ -9,18 +10,15 @@
 The general form of the gradient (the gradient we look to maximize):
 ![JPtheta](https://i.imgur.com/YfWbNnB.png)
 
-
 Notice the advantage function $A^{\pi_{\theta}}(s_t,a_t)$ instead of $R(\tau^{(i)})$
 
 Algorithm pseudo-code:
 
-![pseudo-code](https://spinningup.openai.com/en/latest/_images/math/47a7bd5139a29bc2d2dc85cef12bba4b07b1e831.svg)
+![pseudo-code](https://i.imgur.com/tA0qr24.png)
 
 Algorithm pseudo-code second version less math-heavy:
 
 ![Imgur](https://i.imgur.com/xggCX2h.png)
-
-
 
 1. Use policy $\pi_{\theta}$ to collect `m` trajectories $\tau^{(1)}, \tau^{(2)}, \ldots, \tau^{(m)}$ with horizon $H$. The `i-th` trajectory: $\tau^{(i)}=\left(s_{0}^{(i)}, a_{0}^{(i)}, \ldots, s_{H}^{(i)}, a_{H}^{(i)}, s_{H+1}^{(i)}\right)$
 2. Use trajectories to estimate gradient $\nabla_{\theta} U(\theta)$. $\nabla_{\theta} U(\theta) \approx \hat{g} :=\frac{1}{m} \sum_{i=1}^{m} \sum_{t=0}^{H} \nabla_{\theta} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right) R\left(\tau^{(i)}\right)$
@@ -30,7 +28,6 @@ Algorithm pseudo-code second version less math-heavy:
 $m$: episodes/trajectories
 
 $H$: how long is the episode/trajectory
-
 
 **Code**:
 
@@ -45,7 +42,6 @@ optimizer.zero_grad()
 policy_loss.backward()
 optimizer.step()
 ```
-
 
 ## Derivation of $\nabla_{\theta} U(\theta) \approx \hat{g}=\frac{1}{m} \sum_{i=1}^{m} \sum_{t=0}^{H} \nabla_{\theta} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right) R\left(\tau^{(i)}\right)$
 
@@ -67,15 +63,14 @@ $$
 
 $\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)=0$ because $\sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)$ has no dependence on $\theta$
 
-
 ### About the Pytorch implementation included in the current folder (`reinforce.py`)
 
 * Changing the full connected layer's (`fc_units`) units to 16,32,64 or more doesn't improve how quick the model converges - if it ever converges. Also, adding an additional layer doesn't improve the effectiveness of the algorithm.
 * With smaller learning rate (1e-3 - default:1e-2) the model seems to converge more consistently although much slower. At around the 3000 episode stops the rate of improvement and converges after another 1200 episodes approximately.
 * Setting max_t down to 200 doesn't change much. Below that, the model has a hard time to converge.
 * Setting the discount rate (`gamma`) to `0.995` from `1.0` helps the model to converge more consistently.
-### Sources
-
+  
+  ### Sources
 1. https://spinningup.openai.com/en/latest/algorithms/vpg.html
 2. https://github.com/udacity/deep-reinforcement-learning
 3. http://joschu.net/docs/thesis.pdf (second chapter), Optimizing Expectations: From Deep Reinforcement Learning to Stochastic Computation Graphs, Schulman 2016(a)
