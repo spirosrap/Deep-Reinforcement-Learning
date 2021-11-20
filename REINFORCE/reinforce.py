@@ -9,6 +9,7 @@ import random
 from collections import namedtuple, deque
 from torch.distributions import Categorical
 device = torch.device("cuda:0" if torch.cuda.is_available() else 'cpu')
+import time
 
 gym.logger.set_level(40)
 env = gym.make("CartPole-v0")
@@ -49,6 +50,7 @@ def main():
     scores_deque = deque(maxlen=100)
     scores = []
     for i_episode in range(1,n_episodes+1):
+        env.render()
         saved_log_probs = []
         rewards = []
         state = env.reset()
@@ -83,3 +85,21 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+"""
+Explain what the code does.
+"""
+
+"""
+The code is an implementation of the REINFORCE algorithm.
+The REINFORCE algorithm is an actor-critic method.
+The actor is the policy network, which takes in the state and outputs the action to take.
+The critic is the value network, which takes in the state and outputs the value of the state.
+The actor is trained by taking the gradient of the log probability of the action taken times the discounted reward.
+The critic is trained by taking the discounted reward.
+The algorithm is run for 5000 episodes.
+The code runs the environment for a maximum of 200 timesteps.
+The code saves the policy network every 100 episodes.
+The code prints the average score every 100 episodes.
+The code prints the solved message when the average score is above 195.
+"""
