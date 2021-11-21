@@ -57,7 +57,6 @@ $$
 \begin{aligned} \nabla_{\theta} \log \mathbb{P}\left(\tau^{(i)} ; \theta\right) &=\nabla_{\theta} \log \left[\prod_{t=0}^{H} \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right) \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right)\right] &(1) \\ &=\nabla_{\theta}\left[\sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)+\sum_{t=0}^{H} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right]\right] &(2) \\ &=\nabla_{\theta} \sum_{t=0}^{H} \log \mathbb{P}\left(s_{t+1}^{(i)} | s_{t}^{(i)}, a_{t}^{(i)}\right)+\nabla_{\theta} \sum_{t=0}^{H} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right) &(3) \\
 &=\nabla_{\theta} \sum_{t=0}^{H} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right) &(4) \\
 &=\sum_{t=0}^{H} \nabla_{\theta} \log \pi_{\theta}\left(a_{t}^{(i)} | s_{t}^{(i)}\right) &(5)
-
  \end{aligned}
 $$
 
